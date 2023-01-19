@@ -1,13 +1,9 @@
-from datetime import datetime
-import requests
-import datetime
 from aiogram import Bot, Dispatcher, types, executor
 import pyqrcode as pr
-import os
 
-from config import TOKEN, open_weather_token
+from config import BOT_TOKEN
 
-bot = Bot(TOKEN)
+bot = Bot(BOT_TOKEN)
 dp = Dispatcher(bot)
 
 
@@ -63,19 +59,19 @@ async def send_text_qr(message: types.Message):
         await bot.send_message(message.chat.id, chui)
 
         qr_code = pr.create(message.text)
-        qr_code.png('img/code.png', scale=6)
+        qr_code.png('qrcode_img/code.png', scale=6)
 
-        with open('img/code.png', 'rb') as foto:
+        with open('qrcode_img/code.png', 'rb') as foto:
             await bot.send_photo(message.chat.id, foto)
-            await bot.send_message(message.chat.id, 'Сиздин qrcode даяр! Дагы текст жазсаныз болот!')
+            await bot.send_message(message.chat.id, 'Сиздин qrcode даяр!!!')
 
     elif message.text.lower() == 'talas':
         await bot.send_message(message.chat.id, talas)
 
         qr_code = pr.create(message.text)
-        qr_code.png('img/code.png', scale=6)
+        qr_code.png('qrcode_img/code.png', scale=6)
 
-        with open('img/code.png', 'rb') as foto:
+        with open('qrcode_img/code.png', 'rb') as foto:
             await bot.send_photo(message.chat.id, foto)
             await bot.send_message(message.chat.id, 'Сиздин qrcode даяр! Дагы текст жазсаныз болот!')
 
@@ -83,9 +79,9 @@ async def send_text_qr(message: types.Message):
         await bot.send_message(message.chat.id, yssykkul)
 
         qr_code = pr.create(message.text)
-        qr_code.png('img/code.png', scale=6)
+        qr_code.png('qrcode_img/code.png', scale=6)
 
-        with open('img/code.png', 'rb') as foto:
+        with open('qrcode_img/code.png', 'rb') as foto:
             await bot.send_photo(message.chat.id, foto)
             await bot.send_message(message.chat.id, 'Сиздин qrcode даяр! Дагы текст жазсаныз болот!')
 
@@ -93,9 +89,9 @@ async def send_text_qr(message: types.Message):
         await bot.send_message(message.chat.id, naryn)
 
         qr_code = pr.create(message.text)
-        qr_code.png('img/code.png', scale=6)
+        qr_code.png('qrcode_img/code.png', scale=6)
 
-        with open('img/code.png', 'rb') as foto:
+        with open('qrcode_img/code.png', 'rb') as foto:
             await bot.send_photo(message.chat.id, foto)
             await bot.send_message(message.chat.id, 'Сиздин qrcode даяр! Дагы текст жазсаныз болот!')
 
@@ -103,9 +99,9 @@ async def send_text_qr(message: types.Message):
         await bot.send_message(message.chat.id, osh)
 
         qr_code = pr.create(message.text)
-        qr_code.png('img/code.png', scale=6)
+        qr_code.png('qrcode_img/code.png', scale=6)
 
-        with open('img/code.png', 'rb') as foto:
+        with open('qrcode_img/code.png', 'rb') as foto:
             await bot.send_photo(message.chat.id, foto)
             await bot.send_message(message.chat.id, 'Сиздин qrcode даяр! Дагы текст жазсаныз болот!')
 
@@ -113,9 +109,9 @@ async def send_text_qr(message: types.Message):
         await bot.send_message(message.chat.id, jalal_abad)
 
         qr_code = pr.create(message.text)
-        qr_code.png('img/code.png', scale=6)
+        qr_code.png('qrcode_img/code.png', scale=6)
 
-        with open('img/code.png', 'rb') as foto:
+        with open('qrcode_img/code.png', 'rb') as foto:
             await bot.send_photo(message.chat.id, foto)
             await bot.send_message(message.chat.id, 'Сиздин qrcode даяр! Дагы текст жазсаныз болот!')
 
@@ -123,9 +119,9 @@ async def send_text_qr(message: types.Message):
         await bot.send_message(message.chat.id, batken)
 
         qr_code = pr.create(message.text)
-        qr_code.png('img/code.png', scale=6)
+        qr_code.png('qrcode_img/code.png', scale=6)
 
-        with open('img/code.png', 'rb') as foto:
+        with open('qrcode_img/code.png', 'rb') as foto:
             await bot.send_photo(message.chat.id, foto)
             await bot.send_message(message.chat.id, 'Сиздин qrcode даяр! Дагы текст жазсаныз болот!')
 
@@ -150,7 +146,7 @@ if __name__ == '__main__':
 #
 #     try:
 #         r = requests.get(
-#             f"https://api.openweathermap.org/data/2.5/weather?lat={message.text}&appid={open_weather_token}&units=metric"
+#             f"https://api.openweathermap.org/data/2.5/weather?lat={message.text}&appid={WEATHER_TOKEN}&units=metric"
 #         )
 #         data = r.json()
 #
