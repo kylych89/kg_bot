@@ -1,4 +1,5 @@
 from aiogram import Bot, Dispatcher, types, executor
+import asyncio
 import pyqrcode as pr
 
 from config import BOT_TOKEN
@@ -20,6 +21,7 @@ async def start_command(message: types.Message):
 @dp.message_handler()
 async def send_text_qr(message: types.Message):
     await message.answer('Сиздин жазган текст кабыл алынды куто турунуз!')
+    await asyncio.sleep(2)
 
     chui = 'Чуйская область ' \
            'В состав Чуйской области входят 8 районов - Панфиловский район, ' \
